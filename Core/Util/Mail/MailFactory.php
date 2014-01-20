@@ -17,4 +17,8 @@ class MailFactory {
 		return self::$driver;
 	}
 
+	public static function reset() {
+		self::$driver = null;
+	}
+
 }

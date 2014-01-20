@@ -9,7 +9,7 @@ class MandrillAdapterTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @expectedException Core\Util\Mail\Exception
 	 */
-	public function testInvalidAPIKey() {
+	public function testInvalidAPIKeyException() {
 		mail\MailFactory::setDriver(new mail\MandrillAdapter('1234'));
 
 		mail\MailFactory::getDriver()->send();
