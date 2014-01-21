@@ -12,6 +12,10 @@ class Mapper {
 		$this->params = $configParams;
 	}
 
+	public function getRaw() {
+		return $this->params;
+	}
+
 	public function __get($name) {
 		if (!isset($this->params[$name])) {
 			throw new Exception($name.' not found');
