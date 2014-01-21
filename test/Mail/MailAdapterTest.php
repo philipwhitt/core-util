@@ -1,21 +1,21 @@
 <?php
 
+namespace Core\Util\Mail;
+
 require_once dirname(dirname(dirname(__FILE__))).'/vendor/autoload.php';
 
-use Core\Util\Mail as mail;
-
-class MailAdapterTest extends PHPUnit_Framework_TestCase {
+class MailAdapterTest extends \PHPUnit_Framework_TestCase {
 
 	public function setup() {
-		mail\MailFactory::setDriver(new mail\MailAdapter());
+		MailFactory::setDriver(new MailAdapter());
 	}
 
 	public function teardown() {
-		mail\MailFactory::reset();
+		MailFactory::reset();
 	}
 
 	public function testDriver() {
-		$driver = mail\MailFactory::getDriver();
+		$driver = MailFactory::getDriver();
 
 		$driver->setTo('P Whitt', 'pwhit@'.uniqid().'.com');
 		$driver->setFrom('Unit Test', 'test@'.uniqid().'.com');
