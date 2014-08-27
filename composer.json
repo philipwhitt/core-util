@@ -9,7 +9,8 @@
     ],
     "require": {
         "php": ">=5.3",
-        "mandrill/mandrill" : "1.0.50"
+        "mandrill/mandrill" : "1.0.50",
+        "phpmailer/phpmailer": "5.2.8"
     },
     "autoload": {
         "psr-0": { 
