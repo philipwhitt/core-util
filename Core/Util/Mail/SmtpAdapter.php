@@ -37,18 +37,27 @@ class SmtpAdapter implements Driver {
 	public function send() {
 		$mail = new \PHPMailer();
 		$mail->isSMTP();
-		$mail->Host = $this->host;
+
+		$mail->SMTPAuth = true;
+		$mail->SMTPSecure = 'tls';
+		$mail->Port = 25;
+
+		$mail->Host     = $this->host;
 		$mail->Username = $this->user;
 		$mail->Password = $this->pass;
 
-		$mail->From = $this->from;
+		$mail->Subject  = $this->subject;
+		$mail->Body     = $this->body;
+
+		$mail->From     = $this->from;
 		$mail->FromName = $this->fromName;
+
 		$mail->addReplyTo($this->from, $this->fromName);
 
 		$mail->addAddress($this->to, ''); 
 
 		if (!$mail->send()) {
-			throw new Exception("SMTP failed to send");
+			throw new Exception($mail->ErrorInfo);
 		}
 	}
 
