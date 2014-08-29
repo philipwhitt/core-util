@@ -43,8 +43,6 @@ class SmtpAdapter implements Driver {
 	public function send() {
 		$mail = new \PHPMailer();
 		$mail->isSMTP();
-		
-		$mail->SMTPAuth   = $this->smtpAuth;
 
 		if (!is_null($this->smtpSecure)) {
 			$mail->SMTPSecure = $this->smtpSecure;
@@ -54,6 +52,7 @@ class SmtpAdapter implements Driver {
 			$mail->Port = $this->smtpPort;
 		}
 
+		$mail->SMTPAuth = $this->smtpAuth;
 		$mail->Host     = $this->host;
 		$mail->Username = $this->user;
 		$mail->Password = $this->pass;
