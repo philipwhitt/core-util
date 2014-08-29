@@ -7,6 +7,9 @@ class SmtpAdapter implements Driver {
 	private $host;
 	private $user;
 	private $pass;
+	private $smtpAuth;
+	private $smtpSecure;
+	private $smtpPort;
 
 	private $to;
 	private $fromName;
@@ -14,10 +17,13 @@ class SmtpAdapter implements Driver {
 	private $subject;
 	private $body;
 
-	public function __construct($host, $user, $pass) {
-		$this->host = $host;
-		$this->user = $user;
-		$this->pass = $pass;
+	public function __construct($host, $user, $pass, $smtpAuth=false, $smtpSecure=null, $smtpPort=null) {
+		$this->host       = $host;
+		$this->user       = $user;
+		$this->pass       = $pass;
+		$this->smtpAuth   = $smtpAuth;
+		$this->smtpSecure = $smtpSecure;
+		$this->smtpPort   = $smtpPort;
 	}
 
 	public function setTo($name, $address) {
@@ -37,6 +43,17 @@ class SmtpAdapter implements Driver {
 	public function send() {
 		$mail = new \PHPMailer();
 		$mail->isSMTP();
+		
+		$mail->SMTPAuth   = $this->smtpAuth;
+
+		if (!is_null($this->smtpSecure)) {
+			$mail->SMTPSecure = $this->smtpSecure;
+		}
+
+		if (!is_null($this->smtpPort)) {
+			$mail->Port = $this->smtpPort;
+		}
+
 		$mail->Host     = $this->host;
 		$mail->Username = $this->user;
 		$mail->Password = $this->pass;
