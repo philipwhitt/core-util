@@ -1,4 +1,6 @@
-core-config
-===========
+[![Build Status](https://drone.io/github.com/philipwhitt/core-util/status.png)](https://drone.io/github.com/philipwhitt/core-util/latest)
 
-Database Driver decorators and config manager
+core-util
+=========
+
+Database Driver decorators and config manager. See test/ for examples.
