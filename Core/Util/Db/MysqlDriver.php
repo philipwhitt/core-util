@@ -5,8 +5,12 @@ namespace Core\Util\Db;
 class MysqlDriver implements Driver {
 
 	private $db;
-	private $databaseName;
 	private $query;
+
+	private $host;
+	private $username;
+	private $password;
+	private $databaseName;
 
 	/* DB Connection */
 	public function __construct($host, $username, $password, $databaseName) {

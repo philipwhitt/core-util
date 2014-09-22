@@ -7,11 +7,15 @@ use Core\Util\Db as db;
 /**
  * relies on a database named "test" being created with a user called "localhost" having access to it
  */
-class FactoryTest extends PHPUnit_Framework_TestCase {
+class MysqlDriverTest extends PHPUnit_Framework_TestCase {
 
 	private $refDriver;
 
 	public function setup() {
+		$con=mysqli_connect('127.0.0.1', 'localhost', '');
+		mysqli_query($con, "DROP DATABASE IF EXISTS test;");
+		mysqli_query($con, "CREATE DATABASE test;");
+
 		$this->refDriver = new db\Decorator(new db\MysqlDriver('127.0.0.1', 'localhost', '', 'test'));
 		$this->refDriver->connect();
 
