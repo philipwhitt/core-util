@@ -2,6 +2,8 @@ image: php5.4
 script:
   - composer up
   - phpunit test
+services:
+  - mysql:5.5
 notify:
   email:
     recipients:
