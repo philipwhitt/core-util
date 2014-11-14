@@ -24,7 +24,9 @@ class MysqlDriverTest extends PHPUnit_Framework_TestCase {
 	}
 
 	public function tearDown() {
-		$this->refDriver->query('DROP TABLE IF EXISTS test;');
+		if ($this->refDriver) {
+			$this->refDriver->query('DROP TABLE IF EXISTS test;');
+		}
 	}
 
 	public function testSelectAll() {
