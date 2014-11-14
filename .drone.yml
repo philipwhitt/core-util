@@ -1,7 +1,6 @@
 image: php5.4
 script:
-  - mysql -u root -e "CREATE USER 'ubuntu'@'localhost'";
-  - mysql -u root -e "CREATE USER 'localhost'@'localhost'";
+  # - mysql -u root -e "CREATE USER 'ubuntu'@'localhost'"
   - composer up
   - phpunit test
 services:
