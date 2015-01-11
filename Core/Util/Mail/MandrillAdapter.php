@@ -35,6 +35,18 @@ class MandrillAdapter implements Driver {
 	public function setBody($body) {
 		$this->body = $body;
 	}
+	public function setTags(array $tags) {
+		$this->tags = $tags;
+		return $this;
+	}
+	public function setTemplate($template) {
+		$this->template = $template;
+		return $this;
+	}
+	public function setTemplateContent($templateContent) {
+		$this->templateContent = $templateContent;
+		return $this;
+	}
 
 	public function send() {
 		try {
