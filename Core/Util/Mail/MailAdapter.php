@@ -23,6 +23,9 @@ class MailAdapter implements Driver {
 	public function setBody($body) {
 		$this->body = $body;
 	}
+	public function setTags(array $tags) {}
+	public function setTemplate($template) {}
+	public function setTemplateContent($templateContent) {}
 
 	public function send() {
 		$headers = 'From: ' .$this->from. "\r\n" . 

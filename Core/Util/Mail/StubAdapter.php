@@ -25,6 +25,9 @@ class StubAdapter implements Driver {
 	public function setBody($body) {
 		$this->body = $body;
 	}
+	public function setTags(array $tags) {}
+	public function setTemplate($template) {}
+	public function setTemplateContent($templateContent) {}
 
 	public function send() {
 		$this->sends++;

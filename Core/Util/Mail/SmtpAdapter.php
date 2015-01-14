@@ -39,6 +39,9 @@ class SmtpAdapter implements Driver {
 	public function setBody($body) {
 		$this->body = $body;
 	}
+	public function setTags(array $tags) {}
+	public function setTemplate($template) {}
+	public function setTemplateContent($templateContent) {}
 
 	public function send() {
 		$mail = new \PHPMailer();
